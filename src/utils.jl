@@ -30,3 +30,11 @@ end
     @test_throws ErrorException filterwith(b, unknown=0)
     @test_throws ErrorException getwith(b, unknown=0)
 end
+
+function filterunique(xs)
+    cs = Dict{eltype(xs), Int}()
+    for xx in xs
+        cs[xx] = 1 + get(cs, xx, 0)
+    end
+    eltype(xs)[xx for xx in xs if cs[xx] == 1]
+end

@@ -1,0 +1,60 @@
+# copy-pasted from https://www.ip2currency.com/currency-symbol
+Currency Code	Currency Name	Symbol	Unicode (Hex)
+AED	United Arab Emirates Dirham	د.إ	62f, 2e, 625
+ANG	NL Antillian Guilder	ƒ	192
+ARS	Argentine Peso	$	24
+AUD	Australian Dollar	A$	41, 24
+BRL	Brazilian Real	R$	52, 24
+BSD	Bahamian Dollar	B$	42, 24
+CAD	Canadian Dollar	$	24
+CHF	Swiss Franc	CHF	43, 48, 46
+CLP	Chilean Peso	$	24
+CNY	Chinese Yuan Renminbi	¥	a5
+COP	Colombian Peso	$	24
+CZK	Czech Koruna	Kč	4b,10d
+DKK	Danish Krone	kr	6b, 72
+EUR	Euro	€	20ac
+FJD	Fiji Dollar	FJ$	46, 4a, 24
+GBP	British Pound	£	a3
+GHS	Ghanaian New Cedi	GH₵	47, 48, 20b5
+GTQ	Guatemalan Quetzal	Q	51
+HKD	Hong Kong Dollar	$	24
+HNL	Honduran Lempira	L	4c
+HRK	Croatian Kuna	kn	6b, 6e
+HUF	Hungarian Forint	Ft	46, 74
+IDR	Indonesian Rupiah	Rp	52, 70
+ILS	Israeli New Shekel	₪	20aa
+INR	Indian Rupee	₹	20b9
+ISK	Iceland Krona	kr	6b, 72
+JMD	Jamaican Dollar	J$	4a, 24
+JPY	Japanese Yen	¥	a5
+KRW	South-Korean Won	₩	20a9
+LKR	Sri Lanka Rupee	₨	20a8
+MAD	Moroccan Dirham	.د.م	2e, 62f, 2e, 645
+MMK	Myanmar Kyat	K	4b
+MXN	Mexican Peso	$	24
+MYR	Malaysian Ringgit	RM	52, 4d
+NOK	Norwegian Kroner	kr	6b, 72
+NZD	New Zealand Dollar	$	24
+PAB	Panamanian Balboa	B/.	42, 2f, 2e
+PEN	Peruvian Nuevo Sol	S/.	53, 2f, 2e
+PHP	Philippine Peso	₱	20b1
+PKR	Pakistan Rupee	₨	20a8
+PLN	Polish Zloty	zł	7a, 142
+RON	Romanian New Lei	lei	6c, 65, 69
+RSD	Serbian Dinar	RSD	52, 53, 44
+RUB	Russian Rouble	руб	440, 443, 431
+SEK	Swedish Krona	kr	6b, 72
+SGD	Singapore Dollar	S$	53, 24
+THB	Thai Baht	฿	e3f
+TND	Tunisian Dinar	DT	44, 54
+TRY	Turkish Lira	TL	54, 4c
+TTD	Trinidad/Tobago Dollar	$	24
+TWD	Taiwan Dollar	NT$	4e, 54, 24
+USD	US Dollar	$	24
+VEF	Venezuelan Bolivar Fuerte	Bs	42, 73
+VND	Vietnamese Dong	₫	20ab
+XAF	CFA Franc BEAC	FCFA	46, 43, 46, 41
+XCD	East Caribbean Dollar	$	24
+XPF	CFP Franc	F	46
+ZAR	South African Rand	R	52

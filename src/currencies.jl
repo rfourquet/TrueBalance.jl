@@ -2,9 +2,11 @@ module Currencies
 
 export Currency
 
+using ..TrueBalance: getwith, filterunique
+
 import Downloads
+using Requires
 using XMLDict
-using ..TrueBalance: getwith
 
 
 ## Currency
@@ -19,12 +21,43 @@ end
 
 include("currencies_generated.jl")
 
+# e.g. "€" => EUR, "EUR" => EUR
+# symbols not included if ambiguity, except for "$" associated to USD
+const SYMBOLS = let
+    uniquesymbols = Set(filterunique([c.symbol for c in CURRENCIES]))
+    symbols = Dict{String, Currency}()
+    for c in CURRENCIES
+        symbols[c.code] = c
+        if c.symbol != "" && c.symbol ∈ uniquesymbols
+            symbols[c.symbol] = c
+        end
+    end
+    symbols["\$"] = USD
+    symbols
+end
+
+function __init__()
+    # loading CSV is too slow and it's currently almost never needed
+    @require CSV="336ed68f-0bac-5ca0-87d4-7b16caf5d00b" import .CSV
+end
+
+
 # generate currencies_generated.jl
-function gencurrencies()
-    list_one = IOBuffer()
-    Downloads.download("https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/lists/list_one.xml",
-                       list_one)
-    list_one = String(take!(list_one))
+# requires that CSV is loaded
+# if "list_one.xml" is already downloaded in a file, it can be passed as an argument
+function gencurrencies(list_one::AbstractString=nothing)
+    symbolstable = CSV.read(joinpath(@__DIR__, "currencies_symbols.tsv"), NamedTuple,
+                            comment="#")
+    symbols = Dict(symbolstable[1] .=> symbolstable[3])
+
+    if list_one === nothing
+        list_one = IOBuffer()
+        Downloads.download("https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/lists/list_one.xml",
+                           list_one)
+        list_one = String(take!(list_one))
+    else
+        list_one = read(list_one, String)
+    end
     currsdict = xml_dict(list_one)
     currs = currsdict["ISO_4217"]["CcyTbl"]["CcyNtry"]
     currencies = Currency[]
@@ -41,7 +74,8 @@ function gencurrencies()
             @assert collect(keys(currname)) == [:IsFund, ""]
             currname = currname[""]
         end
-        cnew = Currency(curr["Ccy"], currname, "", parse(Int, curr["CcyNbr"]),
+        cnew = Currency(curr["Ccy"], currname, get(symbols, curr["Ccy"], ""),
+                        parse(Int, curr["CcyNbr"]),
                         let u = curr["CcyMnrUnts"]
                             u == "N.A." ? -1 : parse(Int, u)
                         end)
