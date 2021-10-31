@@ -2,3 +2,14 @@ name = "TrueBalance"
 uuid = "a85986a3-7fc3-4706-b8e7-aa58a6f64b31"
 authors = ["Rafael Fourquet <fourquet.rafael@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+InlineTest = "bd334432-b1e7-49c7-a2dc-dd9149e4ebd6"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+UUIDs = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
+
+[extras]
+ReTest = "e0db7c4e-2690-44b9-bad6-7687da720f89"
+
+[targets]
+test = ["ReTest"]
