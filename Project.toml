@@ -1,0 +1,4 @@
+name = "TrueBalance"
+uuid = "a85986a3-7fc3-4706-b8e7-aa58a6f64b31"
+authors = ["Rafael Fourquet <fourquet.rafael@gmail.com>"]
+version = "0.1.0"
