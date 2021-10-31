@@ -1,6 +1,6 @@
 module TrueBalance
 
-export entity!
+export Currencies, Currency, entity!
 
 using Base: @kwdef
 using Random
@@ -9,6 +9,9 @@ using UUIDs
 using InlineTest
 
 include("utils.jl")
+include("currencies.jl")
+
+using .Currencies: Currency
 
 
 ## Entity
@@ -206,5 +209,6 @@ end
     end
     @test length(allids) == 100 # check there are no collisions, a proxy for randomness
 end
+
 
 end # module
